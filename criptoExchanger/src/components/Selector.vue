@@ -1,30 +1,24 @@
 <template>
     <ul>
-        <li @click="selectItem('BTC')" :className="current == 'BTC' ? 'active' : ''">Bitcoin</li>
-        <li @click="selectItem('ETH')" :className="current == 'ETH' ? 'active' : ''">ETH</li>
-        <li @click="selectItem('USDT')" :className="current == 'USDT' ? 'active' : ''">USDT</li>
+        <li @click="setCrypto('BTC')" :className="cryptoNow == 'BTC' ? 'active' : ''">Bitcoin</li>
+        <li @click="setCrypto('ETH')" :className="cryptoNow == 'ETH' ? 'active' : ''">ETH</li>
+        <li @click="setCrypto('USDT')" :className="cryptoNow == 'USDT' ? 'active' : ''">USDT</li>
     </ul>
 </template>
 
 <script>
     export default{
         props: {
-            setCrypto: Function,
-            required: true
-        },
-
-        data() {
-            return{
-                current: ''
+            setCrypto:{ 
+                type: Function,
+                required: true,
+            },
+            cryptoNow:{
+                type: String,
+                required: true
             }
         },
 
-        methods:{
-            selectItem(val){
-                this.setCrypto(val);
-                this.current = val;
-            }
-        }
     }
 </script>
 
